@@ -1,0 +1,20 @@
+{% extends "document.html" %}
+
+{% block content %}
+<div class="layout">
+    <header></header>
+    <nav class="navbar">
+        {% block nav %}
+        <ul>
+            <li>
+                <a href="/error-tracker/register-application/">Зарегистрировать приложение</a>
+            </li>
+            <li>
+                <a href="/error-tracker/applications/">Список приложений</a>
+            </li>
+        </ul>
+        {% endblock %}
+    </nav>
+    <main>{% block main %}{% endblock %}</main>
+</div>
+{% endblock %}

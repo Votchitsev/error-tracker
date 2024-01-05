@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}Список приложений{% endblock %}
+
+{% block main %}
+<div>
+    <h1>Список приложений</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Название</th>
+                <th>Токен</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for application in applications %}
+            <tr>
+                <td>
+                    {{ application.name }}
+                    <a href="/error-tracker/applications/{{ application.id }}/delete/">
+                        <span class="small-text">
+                            [удалить]
+                        </span>
+                    </a>
+                </td>
+                <td>{{ application.token }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
