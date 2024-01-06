@@ -22,4 +22,4 @@ class Error(models.Model):
     application = models.ForeignKey("Application", on_delete=models.CASCADE)
     timestamp = models.DateTimeField(auto_now_add=True)
     error_text = models.TextField()
-    error_trace = models.TextField()
+    error_stack = models.TextField()

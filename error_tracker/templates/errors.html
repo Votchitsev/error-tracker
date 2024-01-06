@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block title %}Список приложений{% endblock %}
+
+{% block main %}
+<div class="form-container">
+    <h1>Получение списка ошибок</h1>
+    <form method="post" action="/error-tracker/errors/">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">ОК</button>
+    </form>
+    <div>
+        <h1>Список приложений</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Текст ошибки</th>
+                    <th>Количество</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for error in data %}
+                <tr>
+                    <td>{{ error.error_text }}</td>
+                    <td>{{ error.count }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
