@@ -3,3 +3,12 @@
     grid-template-rows: 50px auto;
     grid-template-columns: 1fr 5fr;
 }
+
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.logout {
+    color: var(--third-color);
+}

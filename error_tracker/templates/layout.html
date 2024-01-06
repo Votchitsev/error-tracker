@@ -2,7 +2,14 @@
 
 {% block content %}
 <div class="layout">
-    <header></header>
+    <header>
+        <span class="logo">Error Tracker</span>
+        <div>
+            {% if user.is_authenticated is True %}
+            <span>{{ user }} <a class="small-text logout" href="{% url 'logout' %}">[Выйти]</a></span>
+            {% endif %}
+        </div>
+    </header>
     <nav class="navbar">
         {% block nav %}
         <ul>

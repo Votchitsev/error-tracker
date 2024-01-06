@@ -4,6 +4,7 @@ URL configuration for error_tracker project.
 
 from django.urls import include, path
 
+from .views.logout import logout_view
 from .views.errors import errors_view
 from .views.auth import auth_view
 from .views.main import main_view
@@ -16,5 +17,7 @@ urlpatterns = [
     path('applications/', applications_view, name='applications'),
     path('applications/<int:application_id>/delete/', delete_application_view, name='delete_application'),
     path('errors/', errors_view, name='errors'),
+    path('logout', logout_view, name='logout'),
+
     path('api/', include('error_tracker.rest.urls')),
 ]

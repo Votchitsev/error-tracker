@@ -4,10 +4,19 @@
 
 body {
     margin: 0;
+    background-color: var(--gray);
+    color: var(--primary-color);
 }
 
 input {
     padding: 1em;
+    background-color: var(--isabelline);
+    border: 1px solid var(--third-color);
+}
+
+select {
+    padding: 1em;
+    background-color: var(--isabelline);
 }
 
 button {
@@ -20,18 +29,25 @@ li {
 }
 
 header {
-    display: grid;
-    width: 100%;
+    display: flex;
     height: 50px;
     background-color: var(--primary-color);
     grid-column-start: 1;
     grid-column-end: 3;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2em;
+    color: var(--third-color);
 }
 
 table, th, td {
     border: 1px solid var(--third-color);
     border-collapse: collapse;
     padding: 0.5em;
+}
+
+a {
+    color: var(--primary-color);
 }
 
 .small-text {
