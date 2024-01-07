@@ -14,17 +14,21 @@
         {% block nav %}
         <ul>
             <li>
+                <a href="/error-tracker/errors/">Журнал ошибок</a>
+            </li>
+            <li>
                 <a href="/error-tracker/register-application/">Зарегистрировать приложение</a>
             </li>
             <li>
                 <a href="/error-tracker/applications/">Список приложений</a>
             </li>
-            <li>
-                <a href="/error-tracker/errors/">Журнал ошибок</a>
-            </li>
         </ul>
         {% endblock %}
     </nav>
-    <main>{% block main %}{% endblock %}</main>
+    <main>
+        <h1>{% block page_title %}{% endblock %}</h1>
+        <div class="form-container">{% block form %}{% endblock %}</div>
+        <div>{% block main %}{% endblock %}</div>
+    </main>
 </div>
 {% endblock %}

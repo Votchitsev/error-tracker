@@ -30,5 +30,4 @@ def errors_view(request):
     else:
         form = ErrorForm()
 
-        return render(request, "get_errors.html", {'form': form})
-    
+        return render(request, "errors.html", {'form': form})

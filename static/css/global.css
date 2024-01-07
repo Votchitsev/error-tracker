@@ -8,20 +8,30 @@ body {
     color: var(--primary-color);
 }
 
-input {
-    padding: 1em;
-    background-color: var(--isabelline);
-    border: 1px solid var(--third-color);
+main {
+    margin: 0 2em;
 }
 
-select {
-    padding: 1em;
-    background-color: var(--isabelline);
+input, select {
+    border: 1px solid var(--third-color);
+    padding: 0.5em 1em;
+}
+
+table {
+    margin-top: 2em;
+    width: 100%;
 }
 
 button {
     cursor: pointer;
-    padding: 1em;
+    padding: 0.5em 1em;
+    background-color: var(--gray);
+    border: 1px solid var(--third-color);
+    min-width: 75px;
+}
+
+button:hover {
+    background-color: var(--isabelline);
 }
 
 li {
