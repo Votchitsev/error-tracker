@@ -14,13 +14,10 @@
         {% block nav %}
         <ul>
             <li>
-                <a href="/error-tracker/errors/">Журнал ошибок</a>
+                <a href="{% url 'errors' %}">Журнал ошибок</a>
             </li>
             <li>
-                <a href="/error-tracker/register-application/">Зарегистрировать приложение</a>
-            </li>
-            <li>
-                <a href="/error-tracker/applications/">Список приложений</a>
+                <a href="{% url 'applications' %}">Список приложений</a>
             </li>
         </ul>
         {% endblock %}

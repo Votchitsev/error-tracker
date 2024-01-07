@@ -3,7 +3,7 @@
 {% block title %}Список приложений{% endblock %}
 {% block page_title %}Журнал ошибок{% endblock %}
 {% block form %}
-    <form method="post" action="/error-tracker/errors/">
+    <form method="post" action="{% url 'errors' %}">
         {% csrf_token %}
         {{ form }}
         <button type="submit">ОК</button>

@@ -4,9 +4,10 @@ from django.db.models import Count
 
 from error_tracker.forms.errors import ErrorForm
 from error_tracker.models import Error
+from error_tracker.routes import Routes
 
 
-@login_required(login_url="/error-tracker/auth/")
+@login_required(login_url=Routes.auth.value)
 def errors_view(request):
     """View for errors."""
 

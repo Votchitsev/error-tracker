@@ -2,9 +2,18 @@
 
 {% block title %}Список приложений{% endblock %}
 
+{% block page_title %}Список приложений{% endblock %}
+
+{% block form %}
+    <form method="post" action="{% url 'applications' %}">
+        {% csrf_token %}
+        {{ form }}
+    <button type="submit">Зарегистрировать</button>
+</form>
+{% endblock %}
+
 {% block main %}
 <div>
-    <h1>Список приложений</h1>
     <table>
         <thead>
             <tr>
@@ -17,7 +26,7 @@
             <tr>
                 <td>
                     {{ application.name }}
-                    <a href="/error-tracker/applications/{{ application.id }}/delete/">
+                    <a href="/applications/{{ application.id }}/delete/">
                         <span class="small-text">
                             [удалить]
                         </span>

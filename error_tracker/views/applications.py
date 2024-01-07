@@ -1,15 +1,19 @@
 """Views for applications."""
 
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 
 from error_tracker.forms.register_application import RegisterApplicationForm
 from error_tracker.models import Application
+from error_tracker.routes import Routes
 
 
-@login_required(login_url="/error-tracker/auth/")
-def register_application_view(request):
-    """View for register application."""
+@login_required(login_url=Routes.auth.value)
+def applications_view(request):
+    """View for applications page."""
+
+    applications = Application.objects.filter(user_id=request.user)
 
     if request.method == "POST":
         form = RegisterApplicationForm(request.POST)
@@ -22,31 +26,15 @@ def register_application_view(request):
 
             application.save()
 
-            return render(
-                request,
-                "register_application_success.html",
-                {
-                    "name": application.name,
-                    "application_token": application.token,
-                },
-            )
+            return render(request, "applications.html", {"applications": applications, "form": form})
 
     else:
         form = RegisterApplicationForm()
 
-    return render(request, "register_application.html", {"form": form})
+    return render(request, "applications.html", {"applications": applications, "form": form})
 
 
-@login_required(login_url="/error-tracker/auth/")
-def applications_view(request):
-    """View for applications page."""
-
-    applications = Application.objects.filter(user_id=request.user)
-
-    return render(request, "applications.html", {"applications": applications})
-
-
-@login_required(login_url="/error-tracker/auth/")
+@login_required(login_url=Routes.auth.value)
 def delete_application_view(request, application_id):
     """View for delete application."""
 
@@ -54,4 +42,4 @@ def delete_application_view(request, application_id):
 
     application.delete()
 
-    return render(request, "delete_application_success.html", {"name": application.name})
+    return HttpResponseRedirect(f"/{Routes.applications.value}")
