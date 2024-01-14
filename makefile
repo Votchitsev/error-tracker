@@ -1,2 +1,8 @@
 dev:
-	python3 -B manage.py runserver 8000
+	docker-compose -f docker-compose.dev.yml up --build
+
+build:
+	docker-compose up -d --build
+
+down:
+	docker-compose down
